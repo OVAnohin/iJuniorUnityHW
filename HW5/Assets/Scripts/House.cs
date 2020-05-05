@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Door))]
+
 public class House : MonoBehaviour
 {
   [SerializeField] private Lamp _lamp;
@@ -12,16 +15,16 @@ public class House : MonoBehaviour
   {
     _anim = GetComponent<Animator>();
     _door = FindObjectOfType<Door>();
-    _door.Inside += _door_Inside;
-    _door.Outside += _door_Outside;
+    _door.Opened += DoorOpened;
+    _door.Closed += DoorClosed;
   }
 
-  private void _door_Outside()
+  private void DoorClosed()
   {
     _anim.SetBool("isIndoors", false);
     Destroy(_cloneLamp.gameObject);
   }
-  private void _door_Inside()
+  private void DoorOpened()
   {
     _anim.SetBool("isIndoors", true);
     _cloneLamp = Instantiate(_lamp, transform.position + new Vector3(0,-0.5f, 0), Quaternion.identity);
