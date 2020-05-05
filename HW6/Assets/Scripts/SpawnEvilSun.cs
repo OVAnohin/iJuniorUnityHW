@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Platform : MonoBehaviour
+public class SpawnEvilSun : MonoBehaviour
 {
   [SerializeField] private EvilSun _evilSun = null;
   [SerializeField] float _timeStart = 0;
@@ -14,6 +14,6 @@ public class Platform : MonoBehaviour
 
   private void GenerateEnemy()
   {
-    _evilSunClone = Instantiate(_evilSun, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+    _evilSunClone = Instantiate(_evilSun, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
   }
 }
