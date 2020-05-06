@@ -4,28 +4,24 @@ using UnityEngine;
 public class SpawnEvilSun : MonoBehaviour
 {
   [SerializeField] private EvilSun _evilSun = null;
-  [SerializeField] private int _numberOfSequenceOfStart = 1;
+  [SerializeField] private int _numberOfSequenceOfStart = 0;
 
   private EvilSun _evilSunClone;
-  private float _timer = 0;
 
-  private void Update()
+  private void Start()
   {
-    if (_timer <= _numberOfSequenceOfStart)
-    {
-      _timer += Time.deltaTime;
-      if (_timer >= _numberOfSequenceOfStart)
-      {
-        StartCoroutine(GenerateEnemy());
-        _timer += Time.deltaTime;
-      }
-    }
+    StartCoroutine(GenerateEnemy());
   }
 
   private IEnumerator GenerateEnemy()
   {
     while (true)
     {
+      if (_numberOfSequenceOfStart > 0)
+      {
+        _numberOfSequenceOfStart--;
+        yield return new WaitForSeconds(1f);
+      }
       _evilSunClone = Instantiate(_evilSun, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
       yield return new WaitForSeconds(2f);
     }
