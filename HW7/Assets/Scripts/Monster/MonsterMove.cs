@@ -3,7 +3,7 @@
 public class MonsterMove : MonoBehaviour
 {
   [SerializeField] private float _speed = 0;
-  [SerializeField] private Transform _groundDetection;
+  [SerializeField] private Transform _groundDetection = null;
 
   private bool _moveRigth = true;
   private float _distanceCast = 2;

@@ -324,6 +324,50 @@ Transform:
   m_Father: {fileID: 1916610564}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &268394859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 268394861}
+  - component: {fileID: 268394860}
+  m_Layer: 0
+  m_Name: GoldSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &268394860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268394859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a62de694b67af746987ab317a8187a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gold: {fileID: 5142684843717276607, guid: 340d1233f98b6cf4abb1aad26dfbce90, type: 3}
+--- !u!4 &268394861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268394859}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.999, y: -1.381, z: 0.058961775}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &290269540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,9 +1513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e32e67e7a16701499e9eb14f27a5a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1455466948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,7 +1725,7 @@ Transform:
   m_Father: {fileID: 1916610564}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1647543126
+--- !u!1 &1690145074
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1692,87 +1733,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1647543128}
-  - component: {fileID: 1647543127}
+  - component: {fileID: 1690145076}
+  - component: {fileID: 1690145075}
   m_Layer: 0
-  m_Name: GoldSpawnPoint
+  m_Name: GoldSpawnPoint (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1647543127
+--- !u!114 &1690145075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647543126}
+  m_GameObject: {fileID: 1690145074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bddc12796b42724dad0ff45faf0e8d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a62de694b67af746987ab317a8187a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _take:
-    m_PersistentCalls:
-      m_Calls: []
   _gold: {fileID: 5142684843717276607, guid: 340d1233f98b6cf4abb1aad26dfbce90, type: 3}
---- !u!4 &1647543128
+--- !u!4 &1690145076
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647543126}
+  m_GameObject: {fileID: 1690145074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.1, y: 3.24, z: -0.064453125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1837931438
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1837931440}
-  - component: {fileID: 1837931439}
-  m_Layer: 0
-  m_Name: GoldSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1837931439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837931438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bddc12796b42724dad0ff45faf0e8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _take:
-    m_PersistentCalls:
-      m_Calls: []
-  _gold: {fileID: 5142684843717276607, guid: 340d1233f98b6cf4abb1aad26dfbce90, type: 3}
---- !u!4 &1837931440
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837931438}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.18, y: 0.62, z: -0.064453125}
+  m_LocalPosition: {x: 5.132, y: 0.696, z: 0.058961775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1821,7 +1812,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1973909835
+--- !u!1 &1967824353
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1829,40 +1820,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1973909837}
-  - component: {fileID: 1973909836}
+  - component: {fileID: 1967824355}
+  - component: {fileID: 1967824354}
   m_Layer: 0
-  m_Name: GoldSpawnPoint
+  m_Name: GoldSpawnPoint (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1973909836
+--- !u!114 &1967824354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973909835}
+  m_GameObject: {fileID: 1967824353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bddc12796b42724dad0ff45faf0e8d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a62de694b67af746987ab317a8187a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _take:
-    m_PersistentCalls:
-      m_Calls: []
   _gold: {fileID: 5142684843717276607, guid: 340d1233f98b6cf4abb1aad26dfbce90, type: 3}
---- !u!4 &1973909837
+--- !u!4 &1967824355
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973909835}
+  m_GameObject: {fileID: 1967824353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.11, y: -1.3, z: -0.064453125}
+  m_LocalPosition: {x: -5.278, y: 3.215, z: 0.058961775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
