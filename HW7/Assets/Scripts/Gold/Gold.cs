@@ -6,8 +6,7 @@ public class Gold : MonoBehaviour
   {
     if (collision.GetComponent<Player>() is Player)
     {
-      //Destroy(GetComponent<SpriteRenderer>());
-      Destroy(this.gameObject);
+      Destroy(gameObject);
     }
   }
 }

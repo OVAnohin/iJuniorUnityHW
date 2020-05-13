@@ -1736,7 +1736,7 @@ GameObject:
   - component: {fileID: 1690145076}
   - component: {fileID: 1690145075}
   m_Layer: 0
-  m_Name: GoldSpawnPoint (1)
+  m_Name: GoldSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1823,7 +1823,7 @@ GameObject:
   - component: {fileID: 1967824355}
   - component: {fileID: 1967824354}
   m_Layer: 0
-  m_Name: GoldSpawnPoint (2)
+  m_Name: GoldSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

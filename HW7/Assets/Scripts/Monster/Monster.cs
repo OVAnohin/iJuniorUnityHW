@@ -6,7 +6,7 @@ public class Monster : MonoBehaviour
   {
     if (collision.GetComponent<Player>() is Player)
     {
-      collision.GetComponent<Player>().MonsterHit();
+      collision.GetComponent<Player>().TakeDamage();
     }
   }
 }

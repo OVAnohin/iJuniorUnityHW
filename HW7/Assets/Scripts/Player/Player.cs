@@ -14,12 +14,12 @@ public class Player : MonoBehaviour
     _startColor = _spriteRenderer.color;
   }
 
-  public void MonsterHit()
+  public void TakeDamage()
   {
-    StartCoroutine(MonsterHitSignal());
+    StartCoroutine(ShowHitDamage());
   }
 
-  private IEnumerator MonsterHitSignal()
+  private IEnumerator ShowHitDamage()
   {
     float runningTime = 0;
     float normalizeTime = 0;
