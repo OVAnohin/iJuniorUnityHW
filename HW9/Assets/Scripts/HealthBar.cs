@@ -7,14 +7,18 @@ public class HealthBar : MonoBehaviour
   [SerializeField] private Slider _slider = null;
   [SerializeField] private float _duration = 1f;
 
+  private bool _isChanging;
+
   public void OnButtonClickHeal()
   {
-    StartCoroutine(ChangeLife(0.1f));
+    if (!_isChanging)
+      StartCoroutine(ChangeLife(0.1f));
   }
 
   public void OnButtonClickHit()
   {
-    StartCoroutine(ChangeLife(-0.1f));
+    if (!_isChanging)
+      StartCoroutine(ChangeLife(-0.1f));
   }
 
   private IEnumerator ChangeLife(float value)
@@ -23,6 +27,9 @@ public class HealthBar : MonoBehaviour
     float _max = _min + value;
     float runningTime = 0;
     float normalizeValue = 0;
+
+    _isChanging = true;
+
     while (runningTime < _duration)
     {
       runningTime += Time.deltaTime;
@@ -31,5 +38,7 @@ public class HealthBar : MonoBehaviour
 
       yield return null;
     }
+
+    _isChanging = false;
   }
 }
