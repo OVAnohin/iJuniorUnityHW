@@ -8,17 +8,18 @@ public class HealthBar : MonoBehaviour
   [SerializeField] private float _duration = 1f;
 
   private bool _isChanging;
+  private float _step = 0.05f;
 
   public void OnButtonClickHeal()
   {
     if (!_isChanging)
-      StartCoroutine(ChangeLife(0.1f));
+      StartCoroutine(ChangeLife(_step));
   }
 
   public void OnButtonClickHit()
   {
     if (!_isChanging)
-      StartCoroutine(ChangeLife(-0.1f));
+      StartCoroutine(ChangeLife(_step * -1));
   }
 
   private IEnumerator ChangeLife(float value)
