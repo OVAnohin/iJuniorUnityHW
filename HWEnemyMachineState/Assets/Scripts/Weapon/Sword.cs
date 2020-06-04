@@ -10,6 +10,7 @@ public class Sword : Weapon
 
   public override void Slash(Transform shootPoint)
   {
+    Instantiate(Ammo, shootPoint.position, Quaternion.identity);
   }
 }
 

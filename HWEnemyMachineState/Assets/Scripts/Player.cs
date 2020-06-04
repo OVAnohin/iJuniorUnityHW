@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
   private Weapon _currentWeapon; //текущее оружие
   private int _currentHealth;
   private Animator _animator;
-  private float _delayBeforShoot = 0.6f;
+  private float _delayBeforShoot = 0.65f;
   private float _elapsedTime = 0;
   private bool _isShoot = false;
 

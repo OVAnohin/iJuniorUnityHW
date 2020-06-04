@@ -12,6 +12,9 @@ public class GeneralAttackState : State
   private float _lastAttackTime;
   private Enemy _enemy;
   private Animator _animator;
+  private float _delayBeforShoot = 0.45f;
+  private float _elapsedTime = 0;
+  private bool _isShoot = false;
 
   private void Awake()
   {
@@ -21,17 +24,26 @@ public class GeneralAttackState : State
 
   private void OnEnable()
   {
-    _animator.Play("Shoot");
+    _animator.Play("Idle");
   }
 
   private void Update()
   {
     if (_lastAttackTime <= 0)
     {
-      Attack();
+      _animator.SetTrigger("Attack");
       _lastAttackTime = _delay;
+      _isShoot = true;
+      _elapsedTime = 0;
     }
 
+    if (_isShoot && _elapsedTime >= _delayBeforShoot)
+    {
+      _isShoot = false;
+      Attack();
+    }
+
+    _elapsedTime += Time.deltaTime;
     _lastAttackTime -= Time.deltaTime;
   }
 
