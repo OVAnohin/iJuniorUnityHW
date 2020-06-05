@@ -1,20 +1,15 @@
 ﻿using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
-  [SerializeField] protected string Label;
-  [SerializeField] protected int Price;
-  [SerializeField] protected Sprite Icon;
-  [SerializeField] protected bool IsBuy;
-  [SerializeField] protected Ammo Ammo;
-  [SerializeField] private bool _isMelee;
+  [SerializeField] private string _label;
+  [SerializeField] private int _price;
+  [SerializeField] private Sprite _icon;
+  [SerializeField] private bool _isBuy;
+  [SerializeField] private Ammo _ammo;
 
-  public bool IsMelee
+  public void Attack(Transform shootPoint)
   {
-    get { return _isMelee; }
+    Instantiate(_ammo, shootPoint.position, Quaternion.identity);
   }
-
-  public abstract void Shoot(Transform shootPoint);
-
-  public abstract void Slash(Transform shootPoint);
 }

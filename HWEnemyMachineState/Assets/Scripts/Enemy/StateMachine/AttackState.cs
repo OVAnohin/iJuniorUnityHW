@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
 [RequireComponent(typeof(Animator))]
 
-public class GeneralAttackState : State
+public class AttackState : State
 {
   [SerializeField] private float _delay;
 
@@ -49,9 +47,6 @@ public class GeneralAttackState : State
 
   private void Attack()
   {
-    if (_enemy.GetWeapon.IsMelee)
-      _enemy.GetWeapon.Slash(_enemy.GetShootPoint);
-    else
-      _enemy.GetWeapon.Shoot(_enemy.GetShootPoint);
+    _enemy.GetWeapon.Attack(_enemy.GetShootPoint);
   }
 }

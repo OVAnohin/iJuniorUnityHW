@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
   [SerializeField] private Transform _shootPoing;
 
   public int Money { get; private set; }
+  public UnityAction PlayerDied;
 
   private Weapon _currentWeapon; //текущее оружие
   private int _currentHealth;
@@ -30,7 +32,13 @@ public class Player : MonoBehaviour
     _currentHealth -= damage;
 
     if (_currentHealth <= 0)
-      Destroy(gameObject);
+    {
+      _animator.Play("Die");
+      if (PlayerDied != null)
+      {
+        PlayerDied();
+      }
+    }   
   }
 
   private void OnEnemyDyed(int reward)
@@ -50,11 +58,7 @@ public class Player : MonoBehaviour
     if (_isShoot && _elapsedTime >= _delayBeforShoot)
     {
       _isShoot = false;
-      
-      if (_currentWeapon.IsMelee)
-        _currentWeapon.Slash(_shootPoing);
-      else
-        _currentWeapon.Shoot(_shootPoing);
+      _currentWeapon.Attack(_shootPoing);
     }
 
     _elapsedTime += Time.deltaTime;

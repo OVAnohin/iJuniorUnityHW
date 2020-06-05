@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(GeneralJumpState))]
+[RequireComponent(typeof(JumpState))]
 
 public class JumpTransition : Transition
 {
@@ -22,11 +22,11 @@ public class JumpTransition : Transition
 
   private void Update()
   {
-    if (GetComponent<GeneralJumpState>().IsJumpEnd)
+    if (GetComponent<JumpState>().IsJumpEnd)
     {
       NeedTransit = true;
       _targetState = (from value in TargetStates
-                      where value is GeneralEnemyMoverState
+                      where value is MoveState
                       select value).First();
     }
   }

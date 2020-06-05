@@ -29,7 +29,7 @@ public class GabTransition : Transition
     {
       NeedTransit = true;
       _targetState = (from value in TargetStates
-                      where value is GeneralJumpState
+                      where value is JumpState
                       select value).First();
     }
   }

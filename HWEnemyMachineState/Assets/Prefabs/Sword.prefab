@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3948516845823643921
+--- !u!1 &3724593619194410573
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3948516845823643922}
-  - component: {fileID: 3948516845823643923}
-  - component: {fileID: 3948516845823643920}
+  - component: {fileID: 1501187163102190731}
+  - component: {fileID: 6792785320193630553}
+  - component: {fileID: 8287980428283046374}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3948516845823643922
+--- !u!4 &1501187163102190731
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3948516845823643921}
+  m_GameObject: {fileID: 3724593619194410573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3948516845823643923
+--- !u!212 &6792785320193630553
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3948516845823643921}
+  m_GameObject: {fileID: 3724593619194410573}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -80,21 +80,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3948516845823643920
+--- !u!114 &8287980428283046374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3948516845823643921}
+  m_GameObject: {fileID: 3724593619194410573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed9577c51d7838842914bf10be6f0aaa, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a205c69e5c93dd43a116e3f44a7a08b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Label: 
-  Price: 0
-  Icon: {fileID: 21300000, guid: ad5069de0e56f6f449dd29751e1b4191, type: 3}
-  IsBuy: 0
-  Ammo: {fileID: 1516133325025291427, guid: b09b6c96d6479d04bb2896250b398447, type: 3}
-  _isMelee: 1
+  _label: Sword
+  _price: 0
+  _icon: {fileID: 21300000, guid: 23969d02e2adbd54fb08886b1c15453f, type: 3}
+  _isBuy: 0
+  _ammo: {fileID: 2646233680080060396, guid: c65eb8c524d1d4c4388d9eb47ad9a7a9, type: 3}

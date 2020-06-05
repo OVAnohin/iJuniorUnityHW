@@ -32,7 +32,7 @@ public class DistanceTransition : Transition
     {
       NeedTransit = true;
       _targetState = (from value in TargetStates
-                      where value is GeneralAttackState
+                      where value is AttackState
                       select value).First();
     }
   }
