@@ -6,7 +6,6 @@ public class SwordSlash : Ammo
 {
   public override void OnTriggerEnter2D(Collider2D collider2D)
   {
-    Debug.Log(collider2D.name);
     if (collider2D.GetComponent<Player>() != null)
     {
       collider2D.GetComponent<Player>().ApplyDamage(Damage);

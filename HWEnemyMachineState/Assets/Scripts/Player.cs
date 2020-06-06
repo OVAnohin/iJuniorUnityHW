@@ -11,9 +11,10 @@ public class Player : MonoBehaviour
   [SerializeField] private Transform _shootPoing;
 
   public int Money { get; private set; }
-  public UnityAction PlayerDied;
+  public event UnityAction PlayerDied;
+  public event UnityAction<int, int> HealthChanged;
 
-  private Weapon _currentWeapon; //текущее оружие
+  private Weapon _currentWeapon; 
   private int _currentHealth;
   private Animator _animator;
   private float _delayBeforShoot = 0.65f;
@@ -27,6 +28,11 @@ public class Player : MonoBehaviour
     _animator = GetComponent<Animator>();
   }
 
+  public void AddMoney(int reward)
+  {
+    Money += reward;
+  }
+
   public void ApplyDamage(int damage)
   {
     _currentHealth -= damage;
@@ -34,11 +40,8 @@ public class Player : MonoBehaviour
     if (_currentHealth <= 0)
     {
       _animator.Play("Die");
-      if (PlayerDied != null)
-      {
-        PlayerDied();
-      }
-    }   
+      PlayerDied?.Invoke();
+    }
   }
 
   private void OnEnemyDyed(int reward)
@@ -48,7 +51,7 @@ public class Player : MonoBehaviour
 
   private void Update()
   {
-    if (Input.GetMouseButtonDown(0) && _isShoot == false)
+    if (Input.GetMouseButtonDown(0) && _isShoot == false && _currentHealth > 0)
     {
       _animator.SetTrigger("Shoot");
       _isShoot = true;

@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
 [RequireComponent(typeof(Animator))]
-
 public class JumpState : State
 {
   public bool IsJumpEnd { get; private set; }

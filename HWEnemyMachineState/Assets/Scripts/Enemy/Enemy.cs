@@ -15,32 +15,24 @@ public abstract class Enemy : MonoBehaviour
   [SerializeField] private Transform _shootPoing;
   [SerializeField] private float _dieTime;
 
-  public UnityAction<int> EnemyDied;
+  public event UnityAction<Enemy> Dying;
 
   private Animator _animator;
   private AttackState _attackState;
   private MoveState _moveState;
   private JumpState _jumpState;
   private bool _isDying = false;
+  private Player _target; 
 
-  public float GetSpeed
-  {
-    get
-    { return Speed; }
-  }
-
-  public Transform GetShootPoint
-  {
-    get
-    { return _shootPoing; }
-  }
-
+  public Player Target => _target; 
+  public float GetSpeed => Speed;
+  public Transform GetShootPoint => _shootPoing;
   public Weapon GetWeapon
   {
-    get
-    { return _weapon; }
+    get { return _weapon; }
     protected set { }
   }
+  public int GetReward => Reward;
 
   private void Awake()
   {
@@ -48,6 +40,11 @@ public abstract class Enemy : MonoBehaviour
     _attackState = GetComponent<AttackState>();
     _moveState = GetComponent<MoveState>();
     _jumpState = GetComponent<JumpState>();
+  }
+
+  public void Init(Player player)
+  {
+    _target = player;
   }
 
   public void TakeDamage(int damage)
@@ -67,9 +64,7 @@ public abstract class Enemy : MonoBehaviour
     _moveState.enabled = false;
     _jumpState.enabled = false;
 
-    if (EnemyDied != null)
-      EnemyDied(Reward);
-
+    Dying?.Invoke(this);
     _animator.Play("Die");
     Destroy(gameObject, _dieTime);
   }

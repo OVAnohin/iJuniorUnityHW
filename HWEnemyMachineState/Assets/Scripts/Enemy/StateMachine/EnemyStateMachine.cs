@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
-
 public class EnemyStateMachine : MonoBehaviour
 {
   [SerializeField] private State _firstState; 
   
-  [SerializeField] private Player _target; 
-  //private Player _target; 
+  private Player _target; 
   private State _currentState; 
 
   public State Current 
@@ -19,7 +15,7 @@ public class EnemyStateMachine : MonoBehaviour
 
   private void Start()
   {
-    //_target = GetComponent<Enemy>().Target; //получаем нашего врага, цель
+    _target = GetComponent<Enemy>().Target; 
     Reset(_firstState); 
   }
 
