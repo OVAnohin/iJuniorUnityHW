@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
   public int Money { get; private set; }
   public event UnityAction PlayerDied;
-  public event UnityAction<int, int> HealthChanged;
+  public event UnityAction<int> MoneyChanged;
 
   private Weapon _currentWeapon; 
   private int _currentHealth;
@@ -26,11 +26,13 @@ public class Player : MonoBehaviour
     _currentWeapon = _weapons[0];
     _currentHealth = _health;
     _animator = GetComponent<Animator>();
+    MoneyChanged?.Invoke(Money);
   }
 
   public void AddMoney(int reward)
   {
     Money += reward;
+    MoneyChanged?.Invoke(Money);
   }
 
   public void ApplyDamage(int damage)
@@ -44,9 +46,10 @@ public class Player : MonoBehaviour
     }
   }
 
-  private void OnEnemyDyed(int reward)
+  public void BuyWeapon(Weapon weapon) 
   {
-    Money += reward;
+    Money -= weapon.Price;
+    _weapons.Add(weapon);
   }
 
   private void Update()

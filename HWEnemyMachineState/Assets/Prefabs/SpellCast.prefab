@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a205c69e5c93dd43a116e3f44a7a08b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: 
-  _price: 0
-  _icon: {fileID: 0}
-  _isBuy: 0
-  _ammo: {fileID: 2839396382490759414, guid: 5608177e87120614b8cbced4a119b489, type: 3}
+  _label: Spell
+  _price: 10
+  _icon: {fileID: 21300000, guid: 5170efad75465754e9dd1ec2103367b5, type: 3}
+  _isBuyed: 0
+  _ammo: {fileID: 9112262330482522875, guid: 188678c27909a3d46a4353992ec79cee, type: 3}

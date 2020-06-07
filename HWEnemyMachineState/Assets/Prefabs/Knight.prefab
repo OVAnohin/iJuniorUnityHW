@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
-  Reward: 5
+  Reward: 3
   Speed: 3
   _weapon: {fileID: 8287980428283046374, guid: 8a68d5bda9995ae4e88f80629e4bc6dc, type: 3}
   _shootPoing: {fileID: 616382254079750217}
@@ -158,7 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstState: {fileID: 616382254079750210}
-  _target: {fileID: 0}
 --- !u!114 &616382254079750210
 MonoBehaviour:
   m_ObjectHideFlags: 0
