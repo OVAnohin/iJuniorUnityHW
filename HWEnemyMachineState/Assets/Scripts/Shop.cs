@@ -31,7 +31,7 @@ public class Shop : MonoBehaviour
 
   private void TrySellWeapon(Weapon weapon, WeaponView view)
   {
-    if (weapon.Price <= _player.Money)
+    if (weapon.Price <= _player.Money && _player.IsWeaponInArsenal(weapon))
     {
       _player.BuyWeapon(weapon);
       weapon.Buy(); 

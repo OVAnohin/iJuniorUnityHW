@@ -11,6 +11,7 @@ public class MoneyBar : MonoBehaviour
   private void OnEnable()
   {
     _player.MoneyChanged += OnMoneyChanged;
+    _moneyText.text = _player.Money.ToString();
   }
 
   private void OnDisable()

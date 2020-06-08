@@ -173,7 +173,7 @@ MonoBehaviour:
   Health: 3
   Reward: 2
   Speed: 2
-  _weapon: {fileID: 4188872041087107870, guid: 3f2b67c9d8f5e354f9a1e5a560f0360b, type: 3}
+  _weapon: {fileID: 1218290037753372910, guid: 124b9cb886c7bd34f8d2027feea56a61, type: 3}
   _shootPoing: {fileID: 4752111507608498479}
   _dieTime: 2
 --- !u!114 &4752111507729328152
