@@ -4,18 +4,21 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Player))]
+[RequireComponent(typeof(AudioSource))]
 
 public class PlayerAttack : MonoBehaviour
 {
   [SerializeField] private float _timeBetweenAtacks = 0;
   [SerializeField] private Transform _attackPoint = default;
   [SerializeField] private LayerMask _enemyLayer = default;
+  [SerializeField] private AudioClip _attackSound = default;
 
   private Animator _animator;
   private bool _isUnderAttack;
   private int _damage;
   private float _attackRange;
   private Player _player;
+  private AudioSource _audioSource;
 
   public void TryToHitDamage()
   {
@@ -48,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
   {
     _animator = GetComponent<Animator>();
     _player = GetComponent<Player>();
+    _audioSource = GetComponent<AudioSource>();
     _isUnderAttack = false;
   }
 
@@ -63,6 +67,8 @@ public class PlayerAttack : MonoBehaviour
 
     _isUnderAttack = true;
     _animator.SetTrigger("attack");
+    _audioSource.clip = _attackSound;
+    _audioSource.Play();
 
     while (elapsedTime > 0)
     {

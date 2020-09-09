@@ -3,11 +3,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
   [SerializeField] private int _health = 0;
   [SerializeField] private SpriteRenderer _weaponRender = default;
   [SerializeField] private Weapon _weapon = default;
+  [SerializeField] private AudioClip _hurtSound = default;
 
   public int Money { get; private set; } 
   public event UnityAction<int, int> HealthChanged; 
@@ -15,10 +17,12 @@ public class Player : MonoBehaviour
   public event UnityAction<Weapon> WeaponChanged; 
 
   private List<Weapon> _weapons = new List<Weapon>(); 
-  private int _currentHealth;    
+  private int _currentHealth;
+  private AudioSource _audioSource;
 
   private void Start()
   {
+    _audioSource = GetComponent<AudioSource>();
     _weapons.Add(_weapon);
     _currentHealth = _health;
     _weaponRender.sprite = _weapon.GetSprite;
@@ -35,6 +39,8 @@ public class Player : MonoBehaviour
 
   public void TakeDamage(int damage)
   {
+    _audioSource.clip = _hurtSound;
+    _audioSource.Play();
     _currentHealth -= damage;
     HealthChanged?.Invoke(_currentHealth, _health);
 

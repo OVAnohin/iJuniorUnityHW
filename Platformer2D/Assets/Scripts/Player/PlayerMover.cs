@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 
 public class PlayerMover : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class PlayerMover : MonoBehaviour
   [SerializeField] private float _xWallForce = 0;
   [SerializeField] private float _yWallForce = 0;
   [SerializeField] private float _wallJumpTime = 0;
+  [SerializeField] private AudioClip _jumpSound = default;
+  [SerializeField] private AudioClip _dropSound = default;
+  [SerializeField] private GameObject _dropEffect = default;
 
   private Rigidbody2D _rigidbody2D;
   private bool _facingRight = true;
@@ -25,11 +29,13 @@ public class PlayerMover : MonoBehaviour
   private bool _wallSliding;
   private bool _wallJumping;
   private Animator _animator;
+  private AudioSource _audioSource;
 
   private void Start()
   {
     _rigidbody2D = GetComponent<Rigidbody2D>();
     _animator = GetComponent<Animator>();
+    _audioSource = GetComponent<AudioSource>();
   }
 
   private void Update()
@@ -51,6 +57,7 @@ public class PlayerMover : MonoBehaviour
 
     if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && _isGrounded == true)
     {
+      PlayJumpSound();
       _animator.SetTrigger("takeOf");
       _rigidbody2D.velocity = Vector2.up * _jumpForce;
     }
@@ -71,6 +78,7 @@ public class PlayerMover : MonoBehaviour
 
     if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && _wallSliding == true)
     {
+      PlayJumpSound();
       _wallJumping = true;
       StartCoroutine(SetWallJumpingToFalse());
     }
@@ -80,6 +88,24 @@ public class PlayerMover : MonoBehaviour
       _rigidbody2D.velocity = new Vector2(_xWallForce * -input, _yWallForce);
     }
 
+  }
+
+  public void Land()
+  {
+    Vector2 pos = new Vector2(_groundCheck.position.x, _groundCheck.position.y + 1);
+    Instantiate(_dropEffect, pos, Quaternion.identity);
+  }
+
+  private void PlayJumpSound()
+  {
+    _audioSource.clip = _jumpSound;
+    _audioSource.Play();
+  }  
+  
+  private void PlayDropSound()
+  {
+    _audioSource.clip = _dropSound;
+    _audioSource.Play();
   }
 
   private void Flip()
