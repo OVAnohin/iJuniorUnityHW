@@ -48,6 +48,13 @@ public class Player : MonoBehaviour
       Destroy(gameObject);
   }
 
+  public void TakeBonusLive()
+  {
+    _health += 1;
+    _currentHealth += 1;
+    HealthChanged?.Invoke(_currentHealth, _health);
+  }
+
   public void Equip(Weapon weapon)
   {
     TryToAddWeapon(weapon);

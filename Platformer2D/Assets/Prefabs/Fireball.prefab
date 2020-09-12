@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be5b749cb475cd45894a79c9e3aa9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 2
+  Damage: 1
   AttackRange: 0
   Sprite: {fileID: 5353841184698615464, guid: 974050cfe0d3175419b4fd8b4904232c, type: 3}
   Label: FireBall

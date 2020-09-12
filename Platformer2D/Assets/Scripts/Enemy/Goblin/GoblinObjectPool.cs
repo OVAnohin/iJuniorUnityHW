@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GoblinObjectPool : MonoBehaviour
 {
-  [SerializeField] private GameObject _container;
-  [SerializeField] private int _capacity;
+  [SerializeField] private GameObject _container = default;
+  [SerializeField] private int _capacity = default;
 
   private List<Goblin> _pool = new List<Goblin>();
 
