@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(GoblinStateMachine))]
+
 public class Goblin : Enemy
 {
   [SerializeField] private float _speed = 0;
@@ -18,6 +20,7 @@ public class Goblin : Enemy
   protected override void Die()
   {
     _target.AddMoney(Reward);
+    GetComponent<GoblinStateMachine>().ResetOnDie();
     gameObject.SetActive(false);
   }
 }

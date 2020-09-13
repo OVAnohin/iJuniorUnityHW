@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusHeart : MonoBehaviour
+public class HealthPotion : MonoBehaviour
 {
   private void OnTriggerEnter2D(Collider2D collision)
   {
     if (collision.TryGetComponent<Player>(out Player player))
     {
-      player.TakeBonusLive();
+      player.TakeHealthPotion();
       Destroy(gameObject);
     }
   }

@@ -29,6 +29,13 @@ public class GoblinStateMachine : MonoBehaviour
       _currentState.Enter(_target, _speed);
   }
 
+  public void ResetOnDie()
+  {
+    _currentState.Exit();
+    _currentState = _firstState;
+    _currentState.Enter(_target, _speed);
+  }
+
   private void Update()
   {
     if (_currentState == null)

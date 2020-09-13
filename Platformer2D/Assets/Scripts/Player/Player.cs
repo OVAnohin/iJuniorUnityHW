@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
 
     HealthChanged?.Invoke(_currentHealth, _health);
     WeaponChanged?.Invoke(_weapon);
+    MoneyChanged?.Invoke(Money);
   }
 
   public void AddMoney(int reward)
@@ -51,6 +52,12 @@ public class Player : MonoBehaviour
   public void TakeBonusLive()
   {
     _health += 1;
+    _currentHealth += 1;
+    HealthChanged?.Invoke(_currentHealth, _health);
+  }
+
+  public void TakeHealthPotion()
+  {
     _currentHealth += 1;
     HealthChanged?.Invoke(_currentHealth, _health);
   }
