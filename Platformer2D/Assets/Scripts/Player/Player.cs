@@ -11,19 +11,21 @@ public class Player : MonoBehaviour
   [SerializeField] private Weapon _weapon = default;
   [SerializeField] private AudioClip _hurtSound = default;
 
-  public int Money { get; private set; } 
-  public event UnityAction<int, int> HealthChanged; 
-  public event UnityAction<int> MoneyChanged; 
-  public event UnityAction<Weapon> WeaponChanged; 
+  public int Money { get; private set; }
+  public event UnityAction<int, int> HealthChanged;
+  public event UnityAction<int> MoneyChanged;
+  public event UnityAction<Weapon> WeaponChanged;
+  public Weapon CurrenUseWeapon => _weapon;
+  public List<Weapon> Weapons { get; } = new List<Weapon>();
 
-  private List<Weapon> _weapons = new List<Weapon>(); 
   private int _currentHealth;
   private AudioSource _audioSource;
 
   private void Start()
   {
     _audioSource = GetComponent<AudioSource>();
-    _weapons.Add(_weapon);
+    Weapons.Add(_weapon);
+    _weapon.IsUse = true;
     _currentHealth = _health;
     _weaponRender.sprite = _weapon.GetSprite;
 
@@ -64,17 +66,20 @@ public class Player : MonoBehaviour
 
   public void Equip(Weapon weapon)
   {
+    if (_weapon.GetLabel != weapon.GetLabel)
+      _weapon.IsUse = false;
+
     TryToAddWeapon(weapon);
     _weapon = weapon;
     _weaponRender.sprite = weapon.GetSprite;
+    _weapon.IsUse = true;
     WeaponChanged?.Invoke(_weapon);
   }
 
   private void TryToAddWeapon(Weapon weapon)
   {
-    var foundWeapon = _weapons.Where(w => w.GetLabel == weapon.GetLabel).FirstOrDefault();
+    var foundWeapon = Weapons.Where(w => w.GetLabel == weapon.GetLabel).FirstOrDefault();
     if (foundWeapon == null)
-      _weapons.Add(weapon);
-
+      Weapons.Add(weapon);
   }
 }
