@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
   public event UnityAction<int, int> HealthChanged;
   public event UnityAction<int> MoneyChanged;
   public event UnityAction<Weapon> WeaponChanged;
+  public event UnityAction PlayerDied;
   public Weapon CurrenUseWeapon => _weapon;
   public List<Weapon> Weapons { get; } = new List<Weapon>();
 
@@ -48,7 +49,11 @@ public class Player : MonoBehaviour
     HealthChanged?.Invoke(_currentHealth, _health);
 
     if (_currentHealth <= 0)
-      Destroy(gameObject);
+    {
+      PlayerDied?.Invoke();
+      gameObject.SetActive(false);
+      // Destroy(gameObject);
+    }
   }
 
   public void TakeBonusLive()

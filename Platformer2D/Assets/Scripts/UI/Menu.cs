@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BagMenu : MonoBehaviour
+public class Menu : MonoBehaviour
 {
   public void OpenMenu(GameObject panel)
   {
