@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
     {
       PlayerDied?.Invoke();
       gameObject.SetActive(false);
-      // Destroy(gameObject);
     }
   }
 

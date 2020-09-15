@@ -13,7 +13,6 @@ public abstract class Weapon : MonoBehaviour
   public Sprite GetSprite => Sprite;
   public int GetDamage => Damage;
   public string GetLabel => Label;
-
   public bool IsUse { get; set; }
 
   protected virtual void OnTriggerEnter2D(Collider2D collision)
