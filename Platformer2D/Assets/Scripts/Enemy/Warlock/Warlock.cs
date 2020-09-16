@@ -1,16 +1,18 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class Warlock : Enemy
 {
   [SerializeField] private Player _player = default;
 
-  public override event UnityAction<Enemy> Dying;
+  public override event UnityAction Dying;
+
   public override void Init(Player target)
   {
-    _target = target;
+    Target = target;
   }
-  public Player GetTarget => _target;
+  public Player GetTarget => Target;
 
   private void Awake()
   {
@@ -19,7 +21,7 @@ public class Warlock : Enemy
 
   protected override void Die()
   {
-    _target.AddMoney(Reward);
+    Target.AddMoney(Reward);
     Destroy(gameObject);
   }
 }

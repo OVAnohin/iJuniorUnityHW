@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SartGameMenu : MonoBehaviour
+public class StartGameMenu : MonoBehaviour
 {
   [SerializeField] private Button _startButton = default;
   [SerializeField] private Button _exitButton = default;

@@ -2,27 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 
-public class HealthPotion : MonoBehaviour
+public class HealthPotion : Health
 {
-  [SerializeField] private AudioClip _takeSound = default;
-
-  private AudioSource _audioSource;
-
-  private void Start()
-  {
-    _audioSource = GetComponent<AudioSource>();
-  }
-
-  private void OnTriggerEnter2D(Collider2D collision)
+  protected override void OnTriggerEnter2D(Collider2D collision)
   {
     if (collision.TryGetComponent<Player>(out Player player))
     {
       player.TakeHealthPotion();
-      player.TakeBonusLive();
-      _audioSource.clip = _takeSound;
-      Destroy(gameObject, 0.2f);
+      AudioSource.clip = TakeSound;
+      AudioSource.Play();
+      Destroy(gameObject, 0.3f);
     }
   }
 }

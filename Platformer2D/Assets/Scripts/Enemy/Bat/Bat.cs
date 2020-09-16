@@ -1,19 +1,21 @@
-﻿using UnityEngine.Events;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class Bat : Enemy
 {
-  public override event UnityAction<Enemy> Dying;
-  public Player GetTarget => _target;
+  public override event UnityAction Dying;
+  public Player GetTarget => Target;
 
   public override void Init(Player player)
   {
-    _target = player;
+    Target = player;
   }
 
   protected override void Die()
   {
-    _target.AddMoney(Reward);
-
+    Target.AddMoney(Reward);
+    Dying?.Invoke();
     gameObject.SetActive(false);
   }
 }

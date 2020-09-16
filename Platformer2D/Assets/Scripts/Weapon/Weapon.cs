@@ -15,6 +15,7 @@ public abstract class Weapon : MonoBehaviour
   public string GetLabel => Label;
   public bool IsUse { get; set; }
 
+
   protected virtual void OnTriggerEnter2D(Collider2D collision)
   {
     if (collision.TryGetComponent<Player>(out Player player))

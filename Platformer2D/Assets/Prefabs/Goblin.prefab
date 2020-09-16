@@ -410,7 +410,6 @@ MonoBehaviour:
   Health: 2
   Reward: 1
   _speed: 2
-  _player: {fileID: 0}
 --- !u!114 &3961184953935388673
 MonoBehaviour:
   m_ObjectHideFlags: 0

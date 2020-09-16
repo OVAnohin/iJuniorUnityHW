@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+
 public abstract class Enemy : MonoBehaviour
 {
   [SerializeField] protected int Health;
   [SerializeField] protected int Reward;
 
-  public abstract event UnityAction<Enemy> Dying;
+  public abstract event UnityAction Dying;
 
-  protected Player _target;
+  protected Player Target;
 
   public abstract void Init(Player player);
 
