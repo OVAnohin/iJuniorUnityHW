@@ -8,7 +8,7 @@ public class BatSpawner : BatObjectPool
   [SerializeField] private float _secondBetweenSpawn = default;
   [SerializeField] private Transform[] _spawnPoints = default;
   [SerializeField] private Player _target = default;
- 
+
   private float _elapsedTime = 0;
 
   private void Start()

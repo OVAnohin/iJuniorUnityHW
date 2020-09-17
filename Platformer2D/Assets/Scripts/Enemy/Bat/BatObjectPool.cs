@@ -2,20 +2,12 @@
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-
 public class BatObjectPool : MonoBehaviour
 {
   [SerializeField] private int _capacity = 0;
-  [SerializeField] private AudioClip _deathSound = default;
+  [SerializeField] private GameObject _deathEffect = default;
 
   private List<Bat> _pool = new List<Bat>();
-  private AudioSource _audioSource;
-
-  private void Awake()
-  {
-    _audioSource = GetComponent<AudioSource>();
-  }
 
   protected void Init(Bat prefab)
   {
@@ -34,10 +26,9 @@ public class BatObjectPool : MonoBehaviour
       item.Dying -= OnSpawnedDyed;
   }
 
-  private void OnSpawnedDyed()
+  private void OnSpawnedDyed(Enemy enemy)
   {
-    _audioSource.clip = _deathSound;
-    _audioSource.Play();
+    Instantiate(_deathEffect, enemy.transform.position, Quaternion.identity);
   }
 
   protected bool TryGetObject(out Bat result)

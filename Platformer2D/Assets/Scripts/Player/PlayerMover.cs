@@ -19,7 +19,6 @@ public class PlayerMover : MonoBehaviour
   [SerializeField] private float _yWallForce = 0;
   [SerializeField] private float _wallJumpTime = 0;
   [SerializeField] private AudioClip _jumpSound = default;
-  [SerializeField] private AudioClip _dropSound = default;
   [SerializeField] private GameObject _dropEffect = default;
 
   private Rigidbody2D _rigidbody2D;
@@ -102,12 +101,6 @@ public class PlayerMover : MonoBehaviour
     _audioSource.Play();
   }  
   
-  private void PlayDropSound()
-  {
-    _audioSource.clip = _dropSound;
-    _audioSource.Play();
-  }
-
   private void Flip()
   {
     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);

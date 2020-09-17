@@ -6,7 +6,7 @@ public class Warlock : Enemy
 {
   [SerializeField] private Player _player = default;
 
-  public override event UnityAction Dying;
+  public override event UnityAction<Enemy> Dying;
 
   public override void Init(Player target)
   {

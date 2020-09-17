@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class Bat : Enemy
 {
-  public override event UnityAction Dying;
+  public override event UnityAction<Enemy> Dying;
   public Player GetTarget => Target;
 
   public override void Init(Player player)
@@ -15,7 +15,7 @@ public class Bat : Enemy
   protected override void Die()
   {
     Target.AddMoney(Reward);
-    Dying?.Invoke();
+    Dying?.Invoke(this);
     gameObject.SetActive(false);
   }
 }

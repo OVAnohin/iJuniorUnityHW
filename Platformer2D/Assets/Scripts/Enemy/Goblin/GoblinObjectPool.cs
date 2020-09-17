@@ -7,6 +7,7 @@ public class GoblinObjectPool : MonoBehaviour
 {
   [SerializeField] private GameObject _container = default;
   [SerializeField] private int _capacity = default;
+  [SerializeField] private GameObject _deathEffect = default;
 
   private List<Goblin> _pool = new List<Goblin>();
 
@@ -15,9 +16,21 @@ public class GoblinObjectPool : MonoBehaviour
     for (int i = 0; i < _capacity; i++)
     {
       Goblin spawned = Instantiate(prefab, _container.transform);
+      spawned.Dying += OnSpawnedDyed;
       spawned.gameObject.SetActive(false);
       _pool.Add(spawned);
     }
+  }
+
+  private void OnDisable()
+  {
+    foreach (var item in _pool)
+      item.Dying -= OnSpawnedDyed;
+  }
+
+  private void OnSpawnedDyed(Enemy enemy)
+  {
+    Instantiate(_deathEffect, enemy.transform.position, Quaternion.identity);
   }
 
   protected bool TryGetObject(out Goblin result)
