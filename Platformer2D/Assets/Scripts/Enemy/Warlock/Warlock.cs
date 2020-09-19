@@ -22,6 +22,7 @@ public class Warlock : Enemy
   protected override void Die()
   {
     Target.AddMoney(Reward);
+    Dying?.Invoke(this);
     Destroy(gameObject);
   }
 }
