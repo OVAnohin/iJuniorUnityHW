@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     }
   }
 
-  public void TakeBonusLive()
+  public void TakeBonusHealth()
   {
     _health += 1;
     _currentHealth += 1;

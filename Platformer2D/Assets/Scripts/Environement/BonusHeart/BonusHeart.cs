@@ -8,7 +8,7 @@ public class BonusHeart : Health
   {
     if (collision.TryGetComponent<Player>(out Player player))
     {
-      player.TakeBonusLive();
+      player.TakeBonusHealth();
       AudioSource.clip = TakeSound;
       AudioSource.Play();
       Destroy(gameObject, 0.3f);
