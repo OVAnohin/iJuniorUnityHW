@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class PlayerDeathControl : MonoBehaviour
 {
-  [SerializeField] private Player _player= default;
+  [SerializeField] private Player _player = default;
   [SerializeField] private GameObject _screenOfDeathPanel = default;
   [SerializeField] private GameObject _fadeInPanel = default;
   [SerializeField] private Button _restartGameButton = default;
